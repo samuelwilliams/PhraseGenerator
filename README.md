@@ -1,6 +1,9 @@
 # PhraseGenerator
 Generate an English adjective-noun pair as a phrase (e.g. SubmissiveMonkey).
 
+## Installation
+`composer require badcow/phrase-generator`
+
 ## Usage
 ```php
 <?php
