@@ -1,7 +1,15 @@
 <?php
 
-namespace Badcow\PhraseGenerator;
+/*
+ * This file is part of Badcow Phrase Generator.
+ *
+ * (c) Samuel Williams <sam@badcow.co>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
 
+namespace Badcow\PhraseGenerator;
 
 class PhraseGenerator
 {
@@ -18,7 +26,7 @@ class PhraseGenerator
     /**
      * @return string
      */
-    public static function generate():string
+    public static function generate(): string
     {
         return ucfirst(self::getAdjective()).ucfirst(self::getNoun());
     }
@@ -54,5 +62,4 @@ class PhraseGenerator
 
         return self::$nouns[$index];
     }
-
 }
