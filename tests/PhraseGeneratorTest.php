@@ -14,7 +14,7 @@ namespace Badcow\PhraseGenerator\Tests;
 use Badcow\PhraseGenerator\PhraseGenerator;
 use PHPUnit\Framework\TestCase;
 
-class PhaseGeneratorTest extends TestCase
+class PhraseGeneratorTest extends TestCase
 {
     private function isAnAdjective(string $word): bool
     {

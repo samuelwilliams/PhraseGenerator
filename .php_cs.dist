@@ -20,6 +20,7 @@ $config = PhpCsFixer\Config::create()
         '@Symfony' => true,
         'header_comment' => array('header' => $header),
         'array_syntax' => array('syntax' => 'short'),
+        'declare_strict_types' => true,
     ))
     ->setFinder($finder)
 ;

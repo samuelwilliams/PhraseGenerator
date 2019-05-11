@@ -1,0 +1,19 @@
+language: php
+
+php:
+  - 7.1
+  - 7.2
+  - 7.3
+
+install: composer install
+
+script:
+  - vendor/bin/phpstan.phar analyse --no-interaction --no-progress
+  - vendor/bin/phpunit --coverage-text --coverage-clover=coverage.clover
+
+after_script:
+  - travis_retry php vendor/bin/php-coveralls
+
+notifications:
+  email:
+    - sam@badcow.co
