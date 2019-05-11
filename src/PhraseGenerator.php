@@ -46,14 +46,15 @@ class PhraseGenerator
     {
         // Handle non-numerical key arrays.
         $tmp = array_values($in);
+        $max = count($tmp) - 1;
 
         for ($attempt = 0; $attempt < self::MAX_ENTROPY_ATTEMPTS; ++$attempt) {
             try {
-                $index = random_int(0, count($tmp));
+                $index = random_int(0, $max);
 
                 break;
             } catch (\Exception $e) {
-                // Not enough entry. Let's retry for up to half a second.
+                // Not enough entropy. Let's retry for up to half a second.
                 usleep(100000);
             }
         }
