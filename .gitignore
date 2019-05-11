@@ -1,5 +1,3 @@
-.env
+composer.lock
 /vendor
-/vendor-bin/**/vendor
-/.idea
 .phpunit.result.cache

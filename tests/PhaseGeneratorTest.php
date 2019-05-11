@@ -23,31 +23,37 @@ class PhaseGeneratorTest extends TestCase
 
     public function testWillGrabTwoCamelCasedWordsByDefault()
     {
-        $phrase = PhraseGenerator::generate();
+        for ($i=0;$i<32;$i++) {
+            $phrase = PhraseGenerator::generate();
 
-        // 1: means that the pattern was found.
-        self::assertEquals(1, preg_match('/[A-Z][a-z]+[A-Z][a-z]+/', $phrase), 'The two camel-cased words regex failed.');
+            // 1: means that the pattern was found.
+            $this->assertEquals(1, preg_match('/[A-Z][a-z\-]+[A-Z][a-z\-]+/', $phrase), 'The two camel-cased words regex failed.');
+        }
     }
 
     public function testTheFirstWordWillAlwaysBeAnAdjective()
     {
-        $phrase = PhraseGenerator::generate();
+        for ($i=0;$i<32;$i++) {
+            $phrase = PhraseGenerator::generate();
 
-        // 1: means that the pattern was found.
-        preg_match('/([A-Z][a-z]+)[A-Z][a-z]+/', $phrase, $matches);
+            // 1: means that the pattern was found.
+            preg_match('/([A-Z][a-z\-]+)[A-Z][a-z\-]+/', $phrase, $matches);
 
-        self::assertNotEmpty($matches[1], 'The Adjective regex failed.');
-        self::assertTrue($this->isAnAdjective($matches[1]), 'The first word was not an adjective.');
+            $this->assertNotEmpty($matches[1], 'The Adjective regex failed.');
+            $this->assertTrue($this->isAnAdjective($matches[1]), 'The first word was not an adjective.');
+        }
     }
 
     public function testTheSecondWordWillAlwaysBeANoun()
     {
-        $phrase = PhraseGenerator::generate();
+        for ($i=0;$i<32;$i++) {
+            $phrase = PhraseGenerator::generate();
 
-        // 1: means that the pattern was found.
-        preg_match('/[A-Z][a-z]+([A-Z][a-z]+)/', $phrase, $matches);
+            // 1: means that the pattern was found.
+            preg_match('/[A-Z][a-z\-]+([A-Z][a-z\-]+)/', $phrase, $matches);
 
-        self::assertNotEmpty($matches[1], 'The Noun regex failed.');
-        self::assertTrue($this->isANoun($matches[1]), 'The second word was not a noun.');
+            $this->assertNotEmpty($matches[1], 'The Noun regex failed.');
+             $this->assertTrue($this->isANoun($matches[1]), 'The second word was not a noun.');
+        }
     }
 }
