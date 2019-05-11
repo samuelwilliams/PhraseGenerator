@@ -46,7 +46,7 @@ class PhraseGenerator
             }
         }
 
-        // If it's still not set, fuck it. Just use array_rand().
+        // If it is still not set, use array_rand() instead.
         $index = $index ?? array_rand($tmp);
 
         return $tmp[$index];
@@ -55,7 +55,7 @@ class PhraseGenerator
     /**
      * Return a random adjective.
      */
-    private static function getAdjective(): string
+    public static function getAdjective(): string
     {
         if (empty(self::$adjectives)) {
             self::$adjectives = require_once 'Adjectives.php';
@@ -69,7 +69,7 @@ class PhraseGenerator
      *
      * @return string
      */
-    private static function getNoun(): string
+    public static function getNoun(): string
     {
         if (empty(self::$nouns)) {
             self::$nouns = require_once 'Nouns.php';
