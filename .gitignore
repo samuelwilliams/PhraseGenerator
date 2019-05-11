@@ -1,2 +1,5 @@
-composer.lock
-vendor/
+.env
+/vendor
+/vendor-bin/**/vendor
+/.idea
+.phpunit.result.cache

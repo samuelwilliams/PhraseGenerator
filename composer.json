@@ -16,5 +16,8 @@
         "psr-4": {
             "Badcow\\PhraseGenerator\\": "src/"
         }
+    },
+    "require-dev": {
+        "bamarni/composer-bin-plugin": "^1.3"
     }
 }
