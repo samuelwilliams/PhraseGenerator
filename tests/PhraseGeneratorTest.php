@@ -65,4 +65,36 @@ class PhraseGeneratorTest extends TestCase
             $this->assertTrue($this->isANoun($matches[1]), 'The second word was not a noun.');
         }
     }
+
+    public function testWillGrabMultipleAdjectives()
+    {
+        for ($i = 0; $i < 32; ++$i) {
+            $phrase = PhraseGenerator::generate(2, 1);
+
+            // 1: means that the pattern was found.
+            preg_match('/([A-Z][a-z\-]+)([A-Z][a-z\-]+)[A-Z][a-z\-]+/', $phrase, $matches);
+
+            $this->assertNotEmpty($matches[1], 'The Adjective regex failed.');
+            $this->assertTrue($this->isAnAdjective($matches[1]), 'The first word was not an adjective.');
+
+            $this->assertNotEmpty($matches[2], 'The Adjective regex failed.');
+            $this->assertTrue($this->isAnAdjective($matches[2]), 'The second word was not an adjective.');
+        }
+    }
+
+    public function testWillGrabMultipleNouns()
+    {
+        for ($i = 0; $i < 32; ++$i) {
+            $phrase = PhraseGenerator::generate(1, 2);
+
+            // 1: means that the pattern was found.
+            preg_match('/[A-Z][a-z\-]+([A-Z][a-z\-]+)([A-Z][a-z\-]+)/', $phrase, $matches);
+
+            $this->assertNotEmpty($matches[1], 'The Noun regex failed.');
+            $this->assertTrue($this->isANoun($matches[1]), 'The first word was not a noun.');
+
+            $this->assertNotEmpty($matches[2], 'The Noun regex failed.');
+            $this->assertTrue($this->isANoun($matches[2]), 'The second word was not a noun.');
+        }
+    }
 }
