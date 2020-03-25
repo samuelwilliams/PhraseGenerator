@@ -1,10 +1,15 @@
 # PhraseGenerator
+
 Generate an English adjective-noun pair as a phrase (e.g. SubmissiveMonkey).
 
 ## Installation
+
 `composer require badcow/phrase-generator`
 
 ## Usage
+
+Program generates phrase with one adjective and one noun by default.
+
 ```php
 <?php
 
@@ -12,11 +17,25 @@ require_once __DIR__.'/vendor/autoload.php';
 
 use Badcow\PhraseGenerator\PhraseGenerator;
 
-echo PhraseGenerator::generate();
+echo PhraseGenerator::generate(); // 1 adjective and 1 noun
+
+```
+
+You can also specify to use multiple adjectives or nouns with additional arguments.
+
+```php
+<?php
+
+require_once __DIR__.'/vendor/autoload.php';
+
+use Badcow\PhraseGenerator\PhraseGenerator;
+
+echo PhraseGenerator::generate(2, 1); // 2 adjectives and 1 noun
 
 ```
 
 ## Example Phrases
+
  * UncomfortableTolerant
  * NeighboringTortellini
  * NearStep-grandmother

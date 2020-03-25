@@ -28,11 +28,24 @@ class PhraseGenerator
     private static $nouns = [];
 
     /**
+     * @param int $numAdjectives
+     * @param int $numNouns
+     *
      * @return string
      */
-    public static function generate(): string
+    public static function generate(int $numAdjectives = 1, int $numNouns = 1): string
     {
-        return ucfirst(self::getAdjective()).ucfirst(self::getNoun());
+        $phrase = '';
+
+        for ($i = 0; $i < $numAdjectives; $i++) {
+            $phrase .= ucfirst(self::getAdjective());
+        }
+
+        for ($i = 0; $i < $numNouns; $i++) {
+            $phrase .= ucfirst(self::getNoun());
+        }
+
+        return $phrase;
     }
 
     /**
