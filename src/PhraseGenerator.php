@@ -15,19 +15,30 @@ namespace Badcow\PhraseGenerator;
 
 class PhraseGenerator
 {
+    /**
+     * Maximum number of entropy retries.
+     *
+     * @var int
+     */
     private const MAX_ENTROPY_ATTEMPTS = 5;
 
     /**
+     * A list of adjectives.
+     *
      * @var array
      */
     private static $adjectives = [];
 
     /**
+     * A list of nouns.
+     *
      * @var array
      */
     private static $nouns = [];
 
     /**
+     * Generates a random string of adjectives and nouns.
+     *
      * @param int $numAdjectives
      * @param int $numNouns
      *
@@ -80,6 +91,8 @@ class PhraseGenerator
 
     /**
      * Return a random adjective.
+     *
+     * @return string
      */
     public static function getAdjective(): string
     {
