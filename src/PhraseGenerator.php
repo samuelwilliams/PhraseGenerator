@@ -38,21 +38,16 @@ class PhraseGenerator
 
     /**
      * Generates a random string of adjectives and nouns.
-     *
-     * @param int $numAdjectives
-     * @param int $numNouns
-     *
-     * @return string
      */
     public static function generate(int $numAdjectives = 1, int $numNouns = 1): string
     {
         $phrase = '';
 
-        for ($i = 0; $i < $numAdjectives; $i++) {
+        for ($i = 0; $i < $numAdjectives; ++$i) {
             $phrase .= ucfirst(self::getAdjective());
         }
 
-        for ($i = 0; $i < $numNouns; $i++) {
+        for ($i = 0; $i < $numNouns; ++$i) {
             $phrase .= ucfirst(self::getNoun());
         }
 
@@ -91,8 +86,6 @@ class PhraseGenerator
 
     /**
      * Return a random adjective.
-     *
-     * @return string
      */
     public static function getAdjective(): string
     {
@@ -105,8 +98,6 @@ class PhraseGenerator
 
     /**
      * Return a random noun.
-     *
-     * @return string
      */
     public static function getNoun(): string
     {
