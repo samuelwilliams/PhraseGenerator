@@ -25,14 +25,14 @@ class PhraseGenerator
     /**
      * A list of adjectives.
      *
-     * @var array
+     * @var string[]
      */
     private static $adjectives = [];
 
     /**
      * A list of nouns.
      *
-     * @var array
+     * @var string[]
      */
     private static $nouns = [];
 
@@ -62,7 +62,7 @@ class PhraseGenerator
     /**
      * Returns a random array element, ideally using PHP's cryptographically-secure PRNG.
      *
-     * @param array $in
+     * @param mixed[] $in
      *
      * @return mixed
      */
