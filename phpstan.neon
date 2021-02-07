@@ -2,6 +2,3 @@ parameters:
   level: max
   paths:
     - src/
-    - tests/
-  autoload_files:
-    - %currentWorkingDirectory%/vendor/autoload.php
